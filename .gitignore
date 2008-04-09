@@ -1,3 +1,5 @@
 /tmp
 config/database.yml
 /development/*.log
+*.log
+*.sqlite3
