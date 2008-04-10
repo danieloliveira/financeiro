@@ -110,7 +110,7 @@ class InitialModels < ActiveRecord::Migration
        t.date :data
        t.belongs_to :lancamento
     end
-    create_table :lancamento do |t|
+    create_table :lancamentos do |t|
       t.belongs_to :cliente, :null => true
       t.belongs_to :empresa, :null => false
       t.belongs_to :origem #conta origem
@@ -135,7 +135,7 @@ class InitialModels < ActiveRecord::Migration
 
   def self.down
     drop_table :sumarizacao_contas
-    drop_table :lancamento
+    drop_table :lancamentos
     drop_table :tipo_documentos
     drop_table :previsoes
     drop_table :contas

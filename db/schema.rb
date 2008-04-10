@@ -12,7 +12,9 @@
 ActiveRecord::Schema.define(:version => 1) do
 
   create_table "clientes", :force => true do |t|
-    t.string   "nome",       :null => false
+    t.string   "nome",                          :null => false
+    t.integer  "empresa_id",                    :null => false
+    t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -20,50 +22,63 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table "contas", :force => true do |t|
     t.integer  "empresa_id"
     t.integer  "conta_id"
-    t.integer  "tipo_conta_id", :null => false
+    t.integer  "tipo_conta_id",                    :null => false
+    t.boolean  "removido",      :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "empresas", :force => true do |t|
-    t.string   "nome",       :null => false
+    t.string   "nome",                          :null => false
+    t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "lancamento", :force => true do |t|
+  create_table "lancamentos", :force => true do |t|
     t.integer  "cliente_id"
-    t.integer  "empresa_id",  :null => false
+    t.integer  "empresa_id",                           :null => false
     t.integer  "origem_id"
     t.integer  "destino_id"
     t.integer  "grupo_id"
     t.integer  "previsao_id"
-    t.date     "data",        :null => false
+    t.date     "data",                                 :null => false
+    t.integer  "tipo_documento_id"
+    t.boolean  "removido",          :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "perfis", :force => true do |t|
-    t.string   "nome",       :null => false
+    t.string   "nome",                          :null => false
+    t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "previsoes", :force => true do |t|
-    t.date     "inicio",                    :null => false
-    t.integer  "tipo",       :default => 0, :null => false
-    t.integer  "periodo",    :default => 1, :null => false
+    t.date     "inicio",                        :null => false
+    t.integer  "tipo",       :default => 0,     :null => false
+    t.integer  "periodo",    :default => 1,     :null => false
     t.date     "fim"
-    t.string   "nome",                      :null => false
+    t.string   "nome",                          :null => false
     t.text     "descricao"
+    t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "realizacoes", :force => true do |t|
+    t.integer "previsao_id"
+    t.date    "data"
+    t.integer "lancamento_id"
+  end
+
   create_table "sumarizacao_contas", :force => true do |t|
-    t.integer  "conta_id",   :null => false
-    t.integer  "usuario_id", :null => false
-    t.date     "data",       :null => false
+    t.integer  "conta_id",                      :null => false
+    t.integer  "usuario_id",                    :null => false
+    t.date     "data",                          :null => false
+    t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,28 +86,39 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table "tipo_contas", :force => true do |t|
     t.string   "nome",                          :null => false
     t.boolean  "debito",     :default => false, :null => false
+    t.boolean  "removido",   :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tipo_documentos", :force => true do |t|
+    t.string   "nome",                          :null => false
+    t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "usuario_empresas", :force => true do |t|
-    t.integer  "usuario_id", :null => false
-    t.integer  "empresa_id", :null => false
+    t.integer  "usuario_id",                    :null => false
+    t.integer  "empresa_id",                    :null => false
+    t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "usuario_perfis", :force => true do |t|
-    t.integer  "usuario_id", :null => false
-    t.integer  "empresa_id", :null => false
+    t.integer  "usuario_id",                    :null => false
+    t.integer  "empresa_id",                    :null => false
+    t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "usuarios", :force => true do |t|
-    t.string   "nome",       :null => false
-    t.string   "senha",      :null => false
-    t.string   "email",      :null => false
+    t.string   "nome",                          :null => false
+    t.string   "senha",                         :null => false
+    t.string   "email",                         :null => false
+    t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
