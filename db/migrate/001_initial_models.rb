@@ -29,6 +29,7 @@ class InitialModels < ActiveRecord::Migration
     create_table :empresas do |t|
       t.string :nome, :null => false, :unique => true, :length => 120
 			# adicionar informacao com o fuso horario desta empresa
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
     create_table :usuarios do |t|
@@ -38,31 +39,37 @@ class InitialModels < ActiveRecord::Migration
 			# gostaria que o usuario fosse implementado com o restfull_authentication, 
 			# pois ja implementa esqueci senha, ativacao por email, etc
 			# ou algo semelhante
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
     create_table :usuario_empresas do |t|
       t.belongs_to :usuario, :null => false
       t.belongs_to :empresa, :null => false
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
     create_table :perfis do |t|
       t.string :nome, :null => false, :unique => true, :length => 30
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
     create_table :usuario_perfis do |t|
       t.belongs_to :usuario, :null => false
       t.belongs_to :empresa, :null => false
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
     create_table :clientes do |t|
       t.string :nome, :null => false
 			t.belongs_to :empresa, :null => false # acho que aqui faltou dizer de qual empresa o cliente pertence.
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
     create_table :tipo_contas do |t|
       t.string :nome, :null => false, :unique => true
       t.boolean :debito, :null => false, :default => false #se débito for false a conta é do tipo crédito, por exemplo, caixa é um tipo de conta crédito em um sistema financeiro, e "Despesas alunos" é um tipo de conta débito, um lançamento em uma conta débito é menos dinheiro em caixa
 			# me explique sua definicao de conta. Parece que tipo_contas no seu vocabulario eh plano_contas no meu. Seria aqui que entraria supermercado, impostos, etc?
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
     #contas como caixa, conta em banco, cartão de crédito, ...
@@ -72,6 +79,7 @@ class InitialModels < ActiveRecord::Migration
 			# nao vi utilidade em hierarquia de contas, poderia me explicar como funciona?
       t.belongs_to :tipo_conta, :null => false
 			# se a sua definicao de tipo_contas for igual a minha de plano_contas, nao entendi porque deste relacionamento acima.
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
     #lançamentos dde crédito e débito futuros
@@ -89,7 +97,18 @@ class InitialModels < ActiveRecord::Migration
 			# e quanto ao usuario que criou-a? 
 			# nao tem ligacao com cliente, fornecedor, plano de conta, conta, etc?
 			# me ilumine!
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
+    end
+    create_table :tipo_documentos do |t|
+       t.string :nome, :null => false, :unique => true
+      t.boolean :removido, :null => false, :default => false
+      t.timestamps
+    end
+    create_table :realizacoes do |t|
+       t.belongs_to :previsao
+       t.date :data
+       t.belongs_to :lancamento
     end
     create_table :lancamento do |t|
       t.belongs_to :cliente, :null => true
@@ -99,6 +118,9 @@ class InitialModels < ActiveRecord::Migration
       t.belongs_to :grupo #lançamentos agrupados
       t.belongs_to :previsao
       t.date :data, :null => false # nao seria melhor saber a hora exata com um timestamp? ou isso seria trabalho para o created_at ?
+      t.date :data, :null => false
+      t.belongs_to :tipo_documento
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
     #fechamento caixa, caixa é considerado uma conta, vai ser apenas uma sumarização de uma conta, o que também vai facilitar futuros relatórios
@@ -106,6 +128,7 @@ class InitialModels < ActiveRecord::Migration
       t.belongs_to :conta, :null => false
       t.belongs_to :usuario, :null => false
       t.date :data, :null => false
+      t.boolean :removido, :null => false, :default => false
       t.timestamps
     end
   end
@@ -113,6 +136,7 @@ class InitialModels < ActiveRecord::Migration
   def self.down
     drop_table :sumarizacao_contas
     drop_table :lancamento
+    drop_table :tipo_documentos
     drop_table :previsoes
     drop_table :contas
     drop_table :tipo_contas
