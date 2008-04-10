@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 1) do
+ActiveRecord::Schema.define(:version => 20080410163014) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nome",                          :null => false
@@ -35,13 +35,14 @@ ActiveRecord::Schema.define(:version => 1) do
     t.datetime "updated_at"
   end
 
+  add_index "empresas", ["nome"], :name => "index_empresas_on_nome", :unique => true
+
   create_table "lancamentos", :force => true do |t|
     t.integer  "cliente_id"
     t.integer  "empresa_id",                           :null => false
     t.integer  "origem_id"
     t.integer  "destino_id"
     t.integer  "grupo_id"
-    t.integer  "previsao_id"
     t.date     "data",                                 :null => false
     t.integer  "tipo_documento_id"
     t.boolean  "removido",          :default => false, :null => false
@@ -55,6 +56,8 @@ ActiveRecord::Schema.define(:version => 1) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "perfis", ["nome"], :name => "index_perfis_on_nome", :unique => true
 
   create_table "previsoes", :force => true do |t|
     t.date     "inicio",                        :null => false
@@ -91,12 +94,16 @@ ActiveRecord::Schema.define(:version => 1) do
     t.datetime "updated_at"
   end
 
+  add_index "tipo_contas", ["nome"], :name => "index_tipo_contas_on_nome", :unique => true
+
   create_table "tipo_documentos", :force => true do |t|
     t.string   "nome",                          :null => false
     t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tipo_documentos", ["nome"], :name => "index_tipo_documentos_on_nome", :unique => true
 
   create_table "usuario_empresas", :force => true do |t|
     t.integer  "usuario_id",                    :null => false
@@ -108,7 +115,7 @@ ActiveRecord::Schema.define(:version => 1) do
 
   create_table "usuario_perfis", :force => true do |t|
     t.integer  "usuario_id",                    :null => false
-    t.integer  "empresa_id",                    :null => false
+    t.integer  "perfil_id",                     :null => false
     t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -122,5 +129,7 @@ ActiveRecord::Schema.define(:version => 1) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "usuarios", ["nome"], :name => "index_usuarios_on_nome", :unique => true
 
 end
