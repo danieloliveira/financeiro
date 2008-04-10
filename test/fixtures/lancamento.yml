@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  data: 
+  removido: false
+  created_at: 
+  updated_at: 
+
+two:
+  data: 
+  removido: false
+  created_at: 
+  updated_at: 

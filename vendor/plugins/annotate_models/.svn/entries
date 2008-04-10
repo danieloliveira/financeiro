@@ -1,0 +1,58 @@
+8
+
+dir
+9089
+https://svn.railsrumble.com/kyourclient/trunk/vendor/plugins/annotate_models
+https://svn.railsrumble.com
+
+
+
+2007-09-08T05:42:39.673484Z
+316
+urubatan
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+98adafc4-711a-4a15-b546-8b5823377930
+
+tasks
+dir
+
+lib
+dir
+
+ChangeLog
+file
+
+
+
+
+2007-08-29T21:48:39.000000Z
+d6d7c4ec7466a950da7647f0fba5240c
+2007-09-08T05:42:39.673484Z
+316
+urubatan
+
+README
+file
+
+
+
+
+2007-08-29T21:48:40.000000Z
+1584d33a28eca3bccb7ae644600aaef0
+2007-09-08T05:42:39.673484Z
+316
+urubatan
+
