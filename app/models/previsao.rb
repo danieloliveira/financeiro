@@ -19,9 +19,11 @@ class Previsao < ActiveRecord::Base
   #Relationships
   has_many :realizacoes
   has_many :lancamentos, :through => :realizacoes
+  belongs_to :cliente
   
   #Validations
   validates_presence_of :inicio, :tipo, :periodo, :nome, :removido
   validates_numericality_of :tipo, :periodo, :allow_nil => true
   validates_length_of :nome, :maximum => 255, :allow_nil => true
+  
 end

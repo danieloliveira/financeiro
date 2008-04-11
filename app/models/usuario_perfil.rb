@@ -18,6 +18,7 @@ class UsuarioPerfil < ActiveRecord::Base
   
   #Validations
   validates_presence_of :removido
-  validates_associated :usuario, :allow_nil => true 
-  validates_associated :empresa, :allow_nil => true 
+  validates_associated :usuario
+  validates_associated :empresa
+  
 end
