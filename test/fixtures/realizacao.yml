@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  data: 
+  valor_previsto: 0.0
+  valor_realizado: 0.0
+
+two:
+  data: 
+  valor_previsto: 0.0
+  valor_realizado: 0.0

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080411000613) do
+ActiveRecord::Schema.define(:version => 20080412162147) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nome",                          :null => false
@@ -39,16 +39,18 @@ ActiveRecord::Schema.define(:version => 20080411000613) do
 
   create_table "lancamentos", :force => true do |t|
     t.integer  "cliente_id"
-    t.integer  "empresa_id",                                                          :null => false
+    t.integer  "empresa_id",                           :null => false
     t.integer  "origem_id"
     t.integer  "destino_id"
     t.integer  "grupo_id"
-    t.date     "data",                                                                :null => false
+    t.datetime "data",                                 :null => false
     t.integer  "tipo_documento_id"
-    t.boolean  "removido",                                         :default => false, :null => false
+    t.boolean  "removido",          :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "valor",             :precision => 14, :scale => 2
+    t.decimal  "valor"
+    t.integer  "realizacao_id"
+    t.integer  "numero_parcela"
   end
 
   create_table "perfis", :force => true do |t|
@@ -61,24 +63,29 @@ ActiveRecord::Schema.define(:version => 20080411000613) do
   add_index "perfis", ["nome"], :name => "index_perfis_on_nome", :unique => true
 
   create_table "previsoes", :force => true do |t|
-    t.date     "inicio",                                                           :null => false
-    t.integer  "tipo",                                          :default => 0,     :null => false
-    t.integer  "periodo",                                       :default => 1,     :null => false
-    t.date     "fim"
-    t.string   "nome",                                                             :null => false
+    t.date     "inicio",                            :null => false
+    t.integer  "tipo",           :default => 0,     :null => false
+    t.integer  "periodo",        :default => 1,     :null => false
+    t.string   "nome",                              :null => false
     t.text     "descricao"
-    t.boolean  "removido",                                      :default => false, :null => false
+    t.boolean  "removido",       :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cliente_id"
     t.integer  "numero_parcela"
-    t.decimal  "valor",          :precision => 14, :scale => 2
+    t.decimal  "valor"
+    t.integer  "empresa_id",     :default => 0,     :null => false
+    t.integer  "usuario_id",     :default => 0,     :null => false
+    t.integer  "origem_id",      :default => 0,     :null => false
+    t.integer  "destino_id",     :default => 0,     :null => false
   end
 
   create_table "realizacoes", :force => true do |t|
     t.integer "previsao_id"
     t.date    "data"
-    t.integer "lancamento_id"
+    t.decimal "valor_previsto",  :precision => 14, :scale => 2, :default => 0.0, :null => false
+    t.decimal "valor_realizado", :precision => 14, :scale => 2, :default => 0.0, :null => false
+    t.decimal "valor_desconto",  :precision => 14, :scale => 2, :default => 0.0, :null => false
   end
 
   create_table "sumarizacao_contas", :force => true do |t|
@@ -91,11 +98,12 @@ ActiveRecord::Schema.define(:version => 20080411000613) do
   end
 
   create_table "tipo_contas", :force => true do |t|
-    t.string   "nome",                          :null => false
-    t.boolean  "debito",     :default => false, :null => false
-    t.boolean  "removido",   :default => false, :null => false
+    t.string   "nome",                                        :null => false
+    t.boolean  "debito",                   :default => false, :null => false
+    t.boolean  "removido",                 :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "lancamento_padrao_debito", :default => false, :null => false
   end
 
   add_index "tipo_contas", ["nome"], :name => "index_tipo_contas_on_nome", :unique => true

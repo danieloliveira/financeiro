@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080411000613
+# Schema version: 20080412162147
 #
 # Table name: usuario_empresas
 #
@@ -12,12 +12,12 @@
 #
 
 class UsuarioEmpresa < ActiveRecord::Base
-  #Relationships
-  belongs_to :usuario
-  belongs_to :empresa
-  
-  #Validations
-  validates_presence_of :removido
-  validates_associated :usuario
-  validates_associated :empresa
+   #Relationships
+   belongs_to :usuario
+   belongs_to :empresa
+
+   #Validations
+   validates_presence_of :removido
+   validates_associated :usuario
+   validates_associated :empresa
 end

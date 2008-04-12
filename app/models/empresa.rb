@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080411000613
+# Schema version: 20080412162147
 #
 # Table name: empresas
 #
@@ -11,27 +11,27 @@
 #
 
 class Empresa < ActiveRecord::Base
-  #Relationships
-  has_many :clientes
-  has_many :contas
-  has_many :lancamentos
-  has_many :usuario_empresas
-  has_many :usuarios, :through => :usuario_empresas
+   #Relationships
+   has_many :clientes
+   has_many :contas
+   has_many :lancamentos
+   has_many :usuario_empresas
+   has_many :usuarios, :through => :usuario_empresas
 
-  
-  #Validations
-  validates_presence_of :nome, :removido
-  validates_uniqueness_of :nome 
-  validates_length_of :nome, :maximum => 255, :allow_nil => true
-  
-  #Implementation
+
+   #Validations
+   validates_presence_of :nome, :removido
+   validates_uniqueness_of :nome
+   validates_length_of :nome, :maximum => 255, :allow_nil => true
+
+   #Implementation
 =begin
 Este método retorna a empresa selecionada para o usuário no momento
 =end
-  def self.empresa_selecionada
-    @@empresa_selecionada
-  end
-  def self.empresa_selecionada=(valor)
-    @@empresa_selecionada = valor
-  end
+   def self.empresa_selecionada
+      @@empresa_selecionada
+   end
+   def self.empresa_selecionada=(valor)
+      @@empresa_selecionada = valor
+   end
 end
