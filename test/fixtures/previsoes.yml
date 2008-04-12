@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  inicio: 
+  tipo: 0
+  periodo: 1
+  fim: 
+  nome: 
+  descricao: 
+  removido: false
+  created_at: 
+  updated_at: 
+
+two:
+  inicio: 
+  tipo: 0
+  periodo: 1
+  fim: 
+  nome: 
+  descricao: 
+  removido: false
+  created_at: 
+  updated_at: 

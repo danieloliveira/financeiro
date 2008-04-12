@@ -13,6 +13,8 @@
 #
 
 class SumarizacaoConta < ActiveRecord::Base
+   usar_como_dinheiro :valor
+   
    #Relationships
    belongs_to :conta
    belongs_to :usuario

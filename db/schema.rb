@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080412162147) do
+ActiveRecord::Schema.define(:version => 20080412171520) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nome",                          :null => false
@@ -91,10 +91,11 @@ ActiveRecord::Schema.define(:version => 20080412162147) do
   create_table "sumarizacao_contas", :force => true do |t|
     t.integer  "conta_id",                      :null => false
     t.integer  "usuario_id",                    :null => false
-    t.date     "data",                          :null => false
+    t.datetime "data",                          :null => false
     t.boolean  "removido",   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "valor"
   end
 
   create_table "tipo_contas", :force => true do |t|
