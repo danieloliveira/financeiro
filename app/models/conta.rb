@@ -40,4 +40,27 @@ O parâmetro opções recebe todos os parâmetros para um novo lançamento excet
       l.destino = destino
       l.save!
    end
+=begin
+Cria um registro de fechamento de conta
+=end
+   def sumarizar
+      last_sum = SumarizacaoConta.find(:last, :conditions => ['data < ?', Time.now])
+      if last_sum
+         since = last_sum.data
+         total = last_sum.valor
+      else
+         since = 100.years.ago #FIXME isto vai causar problemas daqui a 100 anos, e tudo para colocar um if a menos no código
+         total = 0
+      end
+      creditos = Lancamento.find(:all, :conditions => ["destino_id = ? and data > ?", self.id, since])
+      debitos = Lancamento.find(:all, :conditions => ["origem_id = ? and data > ?", self.id, since])
+      valor_credito = creditos.inject(0){|memo,lanc| memo + lanc.valor}
+      valor_debito = debitos.inject(0){|memo,lanc| memo + lanc.valor}
+      total = total + valor_credito - valor_debito
+      sum = SumarizacaoConta.new
+      sum.conta = self
+      sum.valor = total
+      sum.data = Time.now
+      sum.save!
+   end
 end
