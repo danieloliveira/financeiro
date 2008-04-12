@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080410155917
+# Schema version: 20080411000613
 #
 # Table name: usuarios
 #
@@ -27,4 +27,26 @@ class Usuario < ActiveRecord::Base
   validates_length_of :nome, :maximum => 255, :allow_nil => true
   validates_length_of :email, :maximum => 255, :allow_nil => true
   validates_length_of :senha, :maximum => 255, :allow_nil => true
+  
+  #Implementation
+=begin
+  Este método retorna o usuário atual do sistema
+=end
+  def self.usuario_logado
+    @@usuario_logado
+  end
+  def self.usuario_logado=(value)
+    @@usuario_logado=value
+  end
+
+=begin
+Método de login
+=end
+  def self.login(login,senha)
+    u = Usuario.find_by_nome(login)
+    if(u && u.senha==senha)
+      @@usuario_logado = u
+    else
+      nil
+  end
 end

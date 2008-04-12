@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080410155917
+# Schema version: 20080411000613
 #
 # Table name: lancamentos
 #
@@ -9,12 +9,12 @@
 #  origem_id         :integer       
 #  destino_id        :integer       
 #  grupo_id          :integer       
-#  previsao_id       :integer       
 #  data              :date          not null
 #  tipo_documento_id :integer       
 #  removido          :boolean       not null
 #  created_at        :datetime      
 #  updated_at        :datetime      
+#  valor             :decimal(14, 2 
 #
 
 class Lancamento < ActiveRecord::Base
@@ -23,8 +23,8 @@ class Lancamento < ActiveRecord::Base
   #Relationships
   belongs_to :cliente
   belongs_to :empresa
-  belongs_to :origem
-  belongs_to :destino
+  belongs_to :origem, :class_name => 'Conta'
+  belongs_to :destino, :class_name => 'Conta'
   belongs_to :grupo, :class_name => 'Lancamento'
   belongs_to :previsao
   belongs_to :tipo_documento

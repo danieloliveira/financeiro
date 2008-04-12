@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080410163014) do
+ActiveRecord::Schema.define(:version => 20080411000613) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nome",                          :null => false
@@ -39,15 +39,16 @@ ActiveRecord::Schema.define(:version => 20080410163014) do
 
   create_table "lancamentos", :force => true do |t|
     t.integer  "cliente_id"
-    t.integer  "empresa_id",                           :null => false
+    t.integer  "empresa_id",                                                          :null => false
     t.integer  "origem_id"
     t.integer  "destino_id"
     t.integer  "grupo_id"
-    t.date     "data",                                 :null => false
+    t.date     "data",                                                                :null => false
     t.integer  "tipo_documento_id"
-    t.boolean  "removido",          :default => false, :null => false
+    t.boolean  "removido",                                         :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "valor",             :precision => 14, :scale => 2
   end
 
   create_table "perfis", :force => true do |t|
@@ -60,15 +61,18 @@ ActiveRecord::Schema.define(:version => 20080410163014) do
   add_index "perfis", ["nome"], :name => "index_perfis_on_nome", :unique => true
 
   create_table "previsoes", :force => true do |t|
-    t.date     "inicio",                        :null => false
-    t.integer  "tipo",       :default => 0,     :null => false
-    t.integer  "periodo",    :default => 1,     :null => false
+    t.date     "inicio",                                                           :null => false
+    t.integer  "tipo",                                          :default => 0,     :null => false
+    t.integer  "periodo",                                       :default => 1,     :null => false
     t.date     "fim"
-    t.string   "nome",                          :null => false
+    t.string   "nome",                                                             :null => false
     t.text     "descricao"
-    t.boolean  "removido",   :default => false, :null => false
+    t.boolean  "removido",                                      :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cliente_id"
+    t.integer  "numero_parcela"
+    t.decimal  "valor",          :precision => 14, :scale => 2
   end
 
   create_table "realizacoes", :force => true do |t|

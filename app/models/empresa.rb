@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080410155917
+# Schema version: 20080411000613
 #
 # Table name: empresas
 #
@@ -23,4 +23,15 @@ class Empresa < ActiveRecord::Base
   validates_presence_of :nome, :removido
   validates_uniqueness_of :nome 
   validates_length_of :nome, :maximum => 255, :allow_nil => true
+  
+  #Implementation
+=begin
+Este método retorna a empresa selecionada para o usuário no momento
+=end
+  def self.empresa_selecionada
+    @@empresa_selecionada
+  end
+  def self.empresa_selecionada=(valor)
+    @@empresa_selecionada = valor
+  end
 end

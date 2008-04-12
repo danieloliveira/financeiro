@@ -1,18 +1,21 @@
 # == Schema Information
-# Schema version: 20080410155917
+# Schema version: 20080411000613
 #
 # Table name: previsoes
 #
-#  id         :integer       not null, primary key
-#  inicio     :date          not null
-#  tipo       :integer       default(0), not null
-#  periodo    :integer       default(1), not null
-#  fim        :date          
-#  nome       :string(255)   not null
-#  descricao  :text          
-#  removido   :boolean       not null
-#  created_at :datetime      
-#  updated_at :datetime      
+#  id             :integer       not null, primary key
+#  inicio         :date          not null
+#  tipo           :integer       default(0), not null
+#  periodo        :integer       default(1), not null
+#  fim            :date          
+#  nome           :string(255)   not null
+#  descricao      :text          
+#  removido       :boolean       not null
+#  created_at     :datetime      
+#  updated_at     :datetime      
+#  cliente_id     :integer       
+#  numero_parcela :integer       
+#  valor          :decimal(14, 2 
 #
 
 class Previsao < ActiveRecord::Base
