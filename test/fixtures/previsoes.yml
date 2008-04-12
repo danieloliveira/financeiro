@@ -1,23 +1,46 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# == Schema Information
+# Schema version: 20080412171520
+#
+# Table name: previsoes
+#
+#  id             :integer       not null, primary key
+#  inicio         :date          not null
+#  tipo           :integer       default(0), not null
+#  periodo        :integer       default(1), not null
+#  nome           :string(255)   not null
+#  descricao      :text          
+#  removido       :boolean       not null
+#  created_at     :datetime      
+#  updated_at     :datetime      
+#  cliente_id     :integer       
+#  numero_parcela :integer       
+#  valor          :decimal(, )   
+#  empresa_id     :integer       default(0), not null
+#  usuario_id     :integer       default(0), not null
+#  origem_id      :integer       default(0), not null
+#  destino_id     :integer       default(0), not null
+#
 
-one:
-  inicio: 
-  tipo: 0
-  periodo: 1
-  fim: 
-  nome: 
-  descricao: 
-  removido: false
-  created_at: 
-  updated_at: 
-
-two:
-  inicio: 
-  tipo: 0
-  periodo: 1
-  fim: 
-  nome: 
-  descricao: 
-  removido: false
-  created_at: 
-  updated_at: 
+## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+#
+#one:
+#  inicio: 
+#  tipo: 0
+#  periodo: 1
+#  fim: 
+#  nome: 
+#  descricao: 
+#  removido: false
+#  created_at: 
+#  updated_at: 
+#
+#two:
+#  inicio: 
+#  tipo: 0
+#  periodo: 1
+#  fim: 
+#  nome: 
+#  descricao: 
+#  removido: false
+#  created_at: 
+#  updated_at: 

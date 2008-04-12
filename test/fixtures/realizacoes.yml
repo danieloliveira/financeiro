@@ -1,11 +1,24 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# == Schema Information
+# Schema version: 20080412171520
+#
+# Table name: realizacoes
+#
+#  id              :integer       not null, primary key
+#  previsao_id     :integer       
+#  data            :date          
+#  valor_previsto  :decimal(14, 2 default(0.0), not null
+#  valor_realizado :decimal(14, 2 default(0.0), not null
+#  valor_desconto  :decimal(14, 2 default(0.0), not null
+#
 
-one:
-  data: 
-  valor_previsto: 0.0
-  valor_realizado: 0.0
-
-two:
-  data: 
-  valor_previsto: 0.0
-  valor_realizado: 0.0
+## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+#
+#one:
+#  data: 
+#  valor_previsto: 0.0
+#  valor_realizado: 0.0
+#
+#two:
+#  data: 
+#  valor_previsto: 0.0
+#  valor_realizado: 0.0

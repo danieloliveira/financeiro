@@ -1,15 +1,29 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# == Schema Information
+# Schema version: 20080412171520
+#
+# Table name: tipo_contas
+#
+#  id                       :integer       not null, primary key
+#  nome                     :string(255)   not null
+#  debito                   :boolean       not null
+#  removido                 :boolean       not null
+#  created_at               :datetime      
+#  updated_at               :datetime      
+#  lancamento_padrao_debito :boolean       not null
+#
 
-one:
-  nome: 
-  debito: false
-  removido: false
-  created_at: 
-  updated_at: 
-
-two:
-  nome: 
-  debito: false
-  removido: false
-  created_at: 
-  updated_at: 
+## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+#
+#one:
+#  nome: 
+#  debito: false
+#  removido: false
+#  created_at: 
+#  updated_at: 
+#
+#two:
+#  nome: 
+#  debito: false
+#  removido: false
+#  created_at: 
+#  updated_at: 

@@ -1,17 +1,29 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# == Schema Information
+# Schema version: 20080412171520
+#
+# Table name: usuarios
+#
+#  id         :integer       not null, primary key
+#  nome       :string(255)   not null
+#  senha      :string(255)   not null
+#  email      :string(255)   not null
+#  removido   :boolean       not null
+#  created_at :datetime      
+#  updated_at :datetime      
+#
 
-one:
-  nome: 
-  senha: 
-  email: 
+## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+#
+usuario_teste:
+  nome: teste
+  senha: teste
+  email: teste@teste.com
   removido: false
-  created_at: 
-  updated_at: 
-
-two:
-  nome: 
-  senha: 
-  email: 
-  removido: false
-  created_at: 
-  updated_at: 
+#
+#two:
+#  nome: 
+#  senha: 
+#  email: 
+#  removido: false
+#  created_at: 
+#  updated_at: 

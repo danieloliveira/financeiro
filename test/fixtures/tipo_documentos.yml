@@ -1,13 +1,25 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# == Schema Information
+# Schema version: 20080412171520
+#
+# Table name: tipo_documentos
+#
+#  id         :integer       not null, primary key
+#  nome       :string(255)   not null
+#  removido   :boolean       not null
+#  created_at :datetime      
+#  updated_at :datetime      
+#
 
-one:
-  nome: 
-  removido: false
-  created_at: 
-  updated_at: 
-
-two:
-  nome: 
-  removido: false
-  created_at: 
-  updated_at: 
+## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+#
+#one:
+#  nome: 
+#  removido: false
+#  created_at: 
+#  updated_at: 
+#
+#two:
+#  nome: 
+#  removido: false
+#  created_at: 
+#  updated_at: 

@@ -1,13 +1,34 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# == Schema Information
+# Schema version: 20080412171520
+#
+# Table name: lancamentos
+#
+#  id                :integer       not null, primary key
+#  cliente_id        :integer       
+#  empresa_id        :integer       not null
+#  origem_id         :integer       
+#  destino_id        :integer       
+#  grupo_id          :integer       
+#  data              :datetime      not null
+#  tipo_documento_id :integer       
+#  removido          :boolean       not null
+#  created_at        :datetime      
+#  updated_at        :datetime      
+#  valor             :decimal(, )   
+#  realizacao_id     :integer       
+#  numero_parcela    :integer       
+#
 
-one:
-  data: 
-  removido: false
-  created_at: 
-  updated_at: 
-
-two:
-  data: 
-  removido: false
-  created_at: 
-  updated_at: 
+## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+#
+#one:
+#  data: 
+#  removido: false
+#  created_at: 
+#  updated_at: 
+#
+#two:
+#  data: 
+#  removido: false
+#  created_at: 
+#  updated_at: 

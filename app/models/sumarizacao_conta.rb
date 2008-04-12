@@ -1,15 +1,16 @@
 # == Schema Information
-# Schema version: 20080412162147
+# Schema version: 20080412171520
 #
 # Table name: sumarizacao_contas
 #
 #  id         :integer       not null, primary key
 #  conta_id   :integer       not null
 #  usuario_id :integer       not null
-#  data       :date          not null
+#  data       :datetime      not null
 #  removido   :boolean       not null
 #  created_at :datetime      
 #  updated_at :datetime      
+#  valor      :decimal(, )   
 #
 
 class SumarizacaoConta < ActiveRecord::Base

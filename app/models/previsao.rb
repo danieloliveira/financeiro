@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080412162147
+# Schema version: 20080412171520
 #
 # Table name: previsoes
 #

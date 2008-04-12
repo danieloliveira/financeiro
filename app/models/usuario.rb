@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080412162147
+# Schema version: 20080412171520
 #
 # Table name: usuarios
 #
@@ -22,7 +22,7 @@ class Usuario < ActiveRecord::Base
 
 
    #Validations
-   validates_presence_of :nome, :senha, :email, :removido
+   validates_presence_of :nome, :senha, :email
    validates_uniqueness_of :nome
    validates_length_of :nome, :maximum => 255, :allow_nil => true
    validates_length_of :email, :maximum => 255, :allow_nil => true
@@ -43,7 +43,7 @@ class Usuario < ActiveRecord::Base
 Método de login
 =end
    def self.login(login,senha)
-      @@usuario_logado
+      @@usuario_logado = nil
       u = Usuario.find_by_nome(login)
       @@usuario_logado = u if u && u.senha == senha
    end

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080412162147
+# Schema version: 20080412171520
 #
 # Table name: usuario_perfis
 #
@@ -14,11 +14,6 @@
 class UsuarioPerfil < ActiveRecord::Base
    #Relationships
    belongs_to :usuario
-   belongs_to :empresa
-
-   #Validations
-   validates_presence_of :removido
-   validates_associated :usuario
-   validates_associated :empresa
+   belongs_to :perfil
 
 end

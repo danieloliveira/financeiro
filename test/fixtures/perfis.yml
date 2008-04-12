@@ -1,13 +1,18 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# == Schema Information
+# Schema version: 20080412171520
+#
+# Table name: perfis
+#
+#  id         :integer       not null, primary key
+#  nome       :string(255)   not null
+#  removido   :boolean       not null
+#  created_at :datetime      
+#  updated_at :datetime      
+#
 
-one:
-  nome: 
+## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+#
+perfil_teste:
+  nome: Perfil Teste
   removido: false
-  created_at: 
-  updated_at: 
 
-two:
-  nome: 
-  removido: false
-  created_at: 
-  updated_at: 
