@@ -12,14 +12,15 @@
 
 ## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 #
-#one:
-#  nome: 
-#  removido: false
-#  created_at: 
-#  updated_at: 
-#
-#two:
-#  nome: 
-#  removido: false
-#  created_at: 
-#  updated_at: 
+one:
+  nome: Cheque
+  removido: false
+
+Two:
+  nome: Dinheiro
+  removido: false
+
+Three:
+  nome: Cartao
+  removido: false
+

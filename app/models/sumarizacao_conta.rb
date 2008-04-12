@@ -21,7 +21,7 @@ class SumarizacaoConta < ActiveRecord::Base
    belongs_to :usuario
 
    #Validations
-   validates_presence_of :data, :removido
+   validates_presence_of :data, :valor
    validates_associated :conta, :allow_nil => true
    validates_associated :usuario, :allow_nil => true
 end

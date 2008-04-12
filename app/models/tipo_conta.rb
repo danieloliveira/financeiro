@@ -17,7 +17,7 @@ class TipoConta < ActiveRecord::Base
    has_many :contas
 
    #Validations
-   validates_presence_of :nome, :debito, :removido
+   validates_presence_of :nome
    validates_uniqueness_of :nome
    validates_length_of :nome, :maximum => 255, :allow_nil => true
 end

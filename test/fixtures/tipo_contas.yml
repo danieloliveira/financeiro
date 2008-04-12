@@ -14,16 +14,28 @@
 
 ## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 #
-#one:
-#  nome: 
-#  debito: false
-#  removido: false
-#  created_at: 
-#  updated_at: 
-#
-#two:
-#  nome: 
-#  debito: false
-#  removido: false
-#  created_at: 
-#  updated_at: 
+tre:
+  nome: Investimentos
+  debito: false
+  removido: false
+
+red:
+  nome: Cartão
+  debito: true
+  removido: false
+
+dav:
+  nome: Banco
+  debito: false
+  removido: false
+
+das:
+  nome: Caixa
+  debito: false
+  removido: false
+
+as:
+  nome: Dividas
+  debito: true
+  removido: false
+

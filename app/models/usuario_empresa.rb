@@ -16,8 +16,4 @@ class UsuarioEmpresa < ActiveRecord::Base
    belongs_to :usuario
    belongs_to :empresa
 
-   #Validations
-   validates_presence_of :removido
-   validates_associated :usuario
-   validates_associated :empresa
 end
