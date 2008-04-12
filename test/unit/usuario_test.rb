@@ -1,12 +1,9 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-require 'usuario'
-
 class UsuarioTest < ActiveSupport::TestCase
-   fixtures :usuario
   # Replace this with your real tests.
-  def test_login
-    assert false
+  def test_truth
+    assert true
   end
 
   def test_validations
