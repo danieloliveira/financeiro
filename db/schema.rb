@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080412171520) do
+ActiveRecord::Schema.define(:version => 20080412190825) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nome",                          :null => false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20080412171520) do
     t.boolean  "removido",      :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nome",          :default => "",    :null => false
   end
 
   create_table "empresas", :force => true do |t|
@@ -76,8 +77,8 @@ ActiveRecord::Schema.define(:version => 20080412171520) do
     t.decimal  "valor"
     t.integer  "empresa_id",     :default => 0,     :null => false
     t.integer  "usuario_id",     :default => 0,     :null => false
-    t.integer  "origem_id",      :default => 0,     :null => false
-    t.integer  "destino_id",     :default => 0,     :null => false
+    t.integer  "origem_id",      :default => 0
+    t.integer  "destino_id",     :default => 0
   end
 
   create_table "realizacoes", :force => true do |t|

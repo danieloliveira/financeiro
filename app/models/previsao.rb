@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080412171520
+# Schema version: 20080412190825
 #
 # Table name: previsoes
 #
@@ -17,10 +17,14 @@
 #  valor          :decimal(, )   
 #  empresa_id     :integer       default(0), not null
 #  usuario_id     :integer       default(0), not null
-#  origem_id      :integer       default(0), not null
-#  destino_id     :integer       default(0), not null
+#  origem_id      :integer       default(0)
+#  destino_id     :integer       default(0)
 #
 
+=begin
+Tipo: 0= diário, 1= semanal, 2= mensal, 3= anual
+
+=end
 class Previsao < ActiveRecord::Base
    usar_como_dinheiro :valor
    #Relationships
@@ -33,21 +37,21 @@ class Previsao < ActiveRecord::Base
    belongs_to :destino, :class_name => 'Conta'
 
    #Validations
-   validates_presence_of :inicio, :tipo, :periodo, :nome, :removido
+   validates_presence_of :inicio, :tipo, :periodo, :nome
    validates_numericality_of :tipo, :periodo, :allow_nil => true
    validates_length_of :nome, :maximum => 255, :allow_nil => true
 
    def realizar(opcoes)
       if opcoes.is_a? Hash
          transaction do
-            data = opcoes.delete(:data) | Time.now
-            val = opcoes.delete(:valor) | self.valor
+            data = opcoes.delete(:data) || Time.now
+            val = opcoes.delete(:valor) || self.valor
             td = opcoes.delete(:tipo_documento)
             real = Realizacao.new
             real.valor_previsto = self.valor
             real.valor_realizado = val
             real.valor_desconto = self.valor - val
-            real.previsao = this
+            real.previsao = self
             real.save!
             if opcoes[:parcelas]
                parcelas = opcoes.delete(:parcelas)
@@ -79,12 +83,13 @@ class Previsao < ActiveRecord::Base
    private
       def criar_lancamento(real,data)
             lan = Lancamento.new
-            lan.cliente = self.cliente
-            lan.empresa = self.empresa
-            lan.origem = self.origem
-            lan.destino = self.destino
+            lan.cliente_id = self.cliente_id
+            lan.empresa_id = self.empresa_id
+            lan.origem_id = self.origem_id
+            lan.destino_id = self.destino_id
             lan.data = data
-            lan.realizacao = real
+            lan.realizacao_id = real.id
+            lan
       end
 
 end

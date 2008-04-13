@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080412171520
+# Schema version: 20080412190825
 #
 # Table name: previsoes
 #
@@ -17,22 +17,22 @@
 #  valor          :decimal(, )   
 #  empresa_id     :integer       default(0), not null
 #  usuario_id     :integer       default(0), not null
-#  origem_id      :integer       default(0), not null
-#  destino_id     :integer       default(0), not null
+#  origem_id      :integer       default(0)
+#  destino_id     :integer       default(0)
 #
 
-## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-#
-#one:
-#  inicio: 
-#  tipo: 0
-#  periodo: 1
-#  fim: 
-#  nome: 
-#  descricao: 
-#  removido: false
-#  created_at: 
-#  updated_at: 
+one:
+  inicio: 2008-04-12 16:13:38
+  tipo: 0
+  periodo: 1
+  nome: Teste
+  descricao: Teste Descricao
+  removido: false
+  usuario_id: 1
+  origem_id: 1
+  valor: 5000
+  empresa_id: 1
+  
 #
 #two:
 #  inicio: 

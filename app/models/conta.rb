@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080412171520
+# Schema version: 20080412190825
 #
 # Table name: contas
 #
@@ -10,6 +10,7 @@
 #  removido      :boolean       not null
 #  created_at    :datetime      
 #  updated_at    :datetime      
+#  nome          :string(255)   default(""), not null
 #
 
 class Conta < ActiveRecord::Base
@@ -24,9 +25,6 @@ class Conta < ActiveRecord::Base
 
    #Validations
    validates_presence_of :removido
-   validates_associated :empresa, :allow_nil => true
-   validates_associated :conta, :allow_nil => true
-   validates_associated :tipo_conta, :allow_nil => true
 
    #implementation
 =begin

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080412171520
+# Schema version: 20080412190825
 #
 # Table name: contas
 #
@@ -10,16 +10,12 @@
 #  removido      :boolean       not null
 #  created_at    :datetime      
 #  updated_at    :datetime      
+#  nome          :string(255)   default(""), not null
 #
 
 ## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 #
-#one:
-#  removido: false
-#  created_at: 
-#  updated_at: 
-#
-#two:
-#  removido: false
-#  created_at: 
-#  updated_at: 
+one:
+  nome: 'Teste'
+  removido: false
+  tipo_conta_id: 1

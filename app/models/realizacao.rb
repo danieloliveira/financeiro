@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20080412171520
+# Schema version: 20080412190825
 #
 # Table name: realizacoes
 #
@@ -16,14 +16,4 @@ class Realizacao < ActiveRecord::Base
   #Relationships
   belongs_to :previsao
   has_many :lancamentos
-  
-  #Validations
-  validates_presence_of :valor_previsto, :valor_realizado
-  validates_numericality_of :valor_previsto, :valor_realizado, :allow_nil => true
-  validates_length_of :valor_previsto, :maximum => 14, :allow_nil => true
-  validates_length_of :valor_realizado, :maximum => 14, :allow_nil => true
-  
-  validates_associated :previsao, :allow_nil => true 
-  
-  
 end
