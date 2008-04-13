@@ -37,16 +37,14 @@ class Lancamento < ActiveRecord::Base
    validates_associated :empresa, :allow_nil => true
    validates_associated :origem, :allow_nil => true
    validates_associated :destino, :allow_nil => true
-   validates_associated :grupo, :allow_nil => true
    validates_associated :tipo_documento, :allow_nil => true
 
 
    def extornar()
-      extorno = Lancamento.new
-      extorno.attributes = attributes
+      extorno = clone
       extorno.valor = extorno.valor * -1
       extorno.grupo = self
-      extornar.save!
+      extorno.save!
    end
 
 end
