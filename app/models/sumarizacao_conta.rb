@@ -22,6 +22,4 @@ class SumarizacaoConta < ActiveRecord::Base
 
    #Validations
    validates_presence_of :data, :valor
-   validates_associated :conta, :allow_nil => true
-   validates_associated :usuario, :allow_nil => true
 end

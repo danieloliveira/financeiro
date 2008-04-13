@@ -16,6 +16,11 @@
 ## Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 #
 one:
-  nome: 'Teste'
+  nome: 'Testes'
+  removido: false
+  tipo_conta_id: 1
+  
+one:
+  nome: 'Teste2'
   removido: false
   tipo_conta_id: 1

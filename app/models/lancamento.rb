@@ -33,11 +33,6 @@ class Lancamento < ActiveRecord::Base
 
    #Validations
    validates_presence_of :data
-   validates_associated :cliente, :allow_nil => true
-   validates_associated :empresa, :allow_nil => true
-   validates_associated :origem, :allow_nil => true
-   validates_associated :destino, :allow_nil => true
-   validates_associated :tipo_documento, :allow_nil => true
 
 
    def extornar()

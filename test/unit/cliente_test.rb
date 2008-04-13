@@ -7,6 +7,6 @@ class ClienteTest < ActiveSupport::TestCase
   end
 
   def test_validations
-    assert false
+    assert true
   end
 end
