@@ -1,0 +1,20 @@
+<h1>Editing exemplo</h1>
+
+<% form_for(@exemplo) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+		<%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+		<%= f.label :descricao %><br />
+    <%= f.text_area :descricao %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @exemplo %> |
+<%= link_to 'Back', exemplos_path %>
